@@ -4,6 +4,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import Userrouter from "./routes/AuthRoute.js";
 import Contactrouter from "./routes/ContactRoutes.js"
+import Messagerouter from "./routes/MessageRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true, limit: '50Mb' }));
 app.use(cookieParser());
 app.use("/api/v1/auth", Userrouter);
 app.use("/api/v1/contact", Contactrouter);
+app.use("/api/v1/message", Messagerouter);
 
 
 export default app;
