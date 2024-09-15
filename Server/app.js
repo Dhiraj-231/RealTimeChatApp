@@ -9,14 +9,16 @@ dotenv.config();
 
 const app = express();
 
-app.use("/uploads/profile", express.static("uploads/profile"));
+
 
 app.use(cors({
     origin: [process.env.ORIGIN],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'Authorization', "Accept"],
     credentials: true
 }));
+app.use("/uploads/profile", express.static("uploads/profile"));
+app.use("/uploads/files", express.static("uploads/files"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '50Mb' }));
 app.use(cookieParser());
