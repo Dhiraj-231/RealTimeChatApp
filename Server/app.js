@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import Userrouter from "./routes/AuthRoute.js";
 import Contactrouter from "./routes/ContactRoutes.js"
 import Messagerouter from "./routes/MessageRoutes.js"
+import ChannelRouter from "./routes/ChannelRoutes.js"
 dotenv.config();
 
 const app = express();
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", Userrouter);
 app.use("/api/v1/contact", Contactrouter);
 app.use("/api/v1/message", Messagerouter);
+app.use("/api/v1/Channel", ChannelRouter);
 
 
 export default app;
